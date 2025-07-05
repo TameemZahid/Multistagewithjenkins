@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: mypythonapp
-          image: git.osfp.org.pk:5050/osfpbootcamp2025/multi-stage-pipeline:1.2.0
+          image: tameemdevops/myapp:v7
           ports:
             - containerPort: 8000
 
@@ -40,7 +40,7 @@ metadata:
     nginx.ingress.kubernetes.io/rewrite-target: "/"
 spec:
   rules:
-    - host: mypythonapp.babarzahoor.com
+    - host: 
       http:
         paths:
           - path: /
