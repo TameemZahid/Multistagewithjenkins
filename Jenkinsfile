@@ -41,18 +41,24 @@ pipeline {
         }
       }
     }
-
+    
+    
     stage('Deploy to MicroK8s') {
       steps {
         sshagent(['microk8']) {
           sh '''
             echo "🚀 Deploying to MicroK8s..."
 
-            ssh -o StrictHostKeyChecking=no root@137.184.65.39 "
-              microk8s.kubectl set image deployment/myapp-deploy myapp=${FULL_IMAGE} -n default &&
-              microk8s.kubectl rollout status deployment/myapp-deploy -n default
-            "
-          '''
+        # Copy deployment.yaml from Jenkins slave to MicroK8s node
+        scp kubernetes/deployment.yaml root@137.184.65.39:/root/myapp/deployment.yaml
+
+        # Now run remote commands on MicroK8s node
+        ssh -o StrictHostKeyChecking=no root@137.184.65.39 '
+          microk8s.kubectl apply -f /root/myapp/deployment.yaml &&
+          microk8s.kubectl set image deployment/mypythonapp-deploy mypythonapp=${FULL_IMAGE} -n default &&
+          microk8s.kubectl rollout status deployment/mypythonapp-deploy -n default
+        '
+      '''
         }
       }
     }
