@@ -44,7 +44,7 @@ pipeline {
 
     stage('Deploy to MicroK8s') {
       steps {
-        sshagent(['microk8s-ssh-creds']) {
+        sshagent(['microk8']) {
           sh '''
             echo "🚀 Deploying to MicroK8s..."
 
