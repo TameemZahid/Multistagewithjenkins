@@ -11,7 +11,7 @@ pipeline {
   stages {
     stage('Checkout Code') {
       steps {
-        git url: 'https://github.com/TameemZahid/WebAppForJenkins.git', branch: 'main'
+        git url: 'https://github.com/TameemZahid/Multistagewithjenkins.git', branch: 'main'
       }
     }
 
