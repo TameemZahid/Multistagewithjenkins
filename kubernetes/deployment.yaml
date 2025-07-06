@@ -13,7 +13,7 @@ spec:
         app: mypythonapp-deploy
     spec:
       containers:
-        - name: mypythonapp-deploy
+        - name: myapp
           image: tameemdevops/myapp:dummy
           ports:
             - containerPort: 8000
@@ -40,7 +40,7 @@ metadata:
     nginx.ingress.kubernetes.io/rewrite-target: "/"
 spec:
   rules:
-    - host: 
+    - host: mypythonapp.local
       http:
         paths:
           - path: /
