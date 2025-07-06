@@ -55,7 +55,7 @@ pipeline {
         # Now run remote commands on MicroK8s node
         ssh -o StrictHostKeyChecking=no root@137.184.65.39 '
           microk8s.kubectl apply -f /root/myapp/deployment.yaml &&
-          microk8s.kubectl set image deployment/mypythonapp-deploy mypythonapp-deploy=tameemdevops/myapp:v7 &&
+          microk8s.kubectl set image deployment/mypythonapp-deploy mypythonapp-deploy=tameemdevops/myapp:v26 &&
           microk8s.kubectl rollout status deployment/mypythonapp-deploy -n default
         '
       '''
