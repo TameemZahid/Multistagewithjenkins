@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: mypythonapp-deploy
-          image: tameemdevops/myapp:v7
+          image: tameemdevops/myapp:dummy
           ports:
             - containerPort: 8000
 
