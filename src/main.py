@@ -24,7 +24,7 @@ def read_test():
 
 @app.get("/")
 def read_root():
-    return {"message": "https://www.youtube.com/babarzahoor <br> <br> https://github.com/DevOps-With-Babar-Zahoor/RamadanBootCamp2025"}
+    return {"message": "Hello Tameem <br> <br> You Sucessfully Deployed Multistage CI/CD thorugh Jenkins"}
     # return {"message": "Welcome to the FastAPI application!"}
 
 @app.get("/items/{item_id}")
